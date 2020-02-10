@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.imgRound {
+  border-radius: 50%;
+}
+
+.footerText {
+  color: white;
+  text-align: center;
+}
+
+.detailImg {
+  width: 300px;
+  height: 300px;
+}
+
+.detailIcon {
+  width: 30px;
+  height: 30px;
+}

@@ -1,26 +1,54 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as bs from 'react-bootstrap'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import HeaderContainer from './header-container'
+import LeftContainer from './left-container'
+import RightContainer from './right-container'
+import FooterContainer from './footer-container'
+import Home from './home'
+import About from './about'
+import Help from './help'
+import ProductDetail from './product-detail'
+import './App.css'
 
-function App() {
+
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+        <bs.Container fluid className="p-0 min-vh-100 d-flex flex-column" style={{ backgroundColor: "#EAEDED"}}>
+            <bs.Row className="flext-grow-0 flex-shrink-0 shadow-sm">
+              <bs.Col className="px-3 py-2" style={{ backgroundColor: "#232F3E"}}>
+                <HeaderContainer />
+              </bs.Col>
+            </bs.Row>
+          <bs.Row noGutters className="flex-grow-1">
+            <bs.Col md="2" className="px-3 py-4 shadow" style={{ backgroundColor: "#EAEDED"}}>
+              <LeftContainer />
+            </bs.Col>
+            <bs.Col md="8">
+              <Switch>
+                <Route exact path="/product/:Id" component={ProductDetail}/>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/category/:Name" component={Home}/>
+                <Route exact path="/about" component={About}/>
+                <Route exact path="/help" component={Help}/>
+              </Switch>
+            </bs.Col>
+            <bs.Col md="2" className="px-3 py-4 shadow" style={{ backgroundColor: "#EAEDED"}}>
+              <RightContainer />
+            </bs.Col>
+          </bs.Row>
+          <bs.Row noGutters className="flex-grow-0 flex-shrink-0">
+            <bs.Col className="px-3 py-2" style={{ backgroundColor: "#232F3E"}}>
+              <FooterContainer />
+            </bs.Col>
+          </ bs.Row>
+        </bs.Container>
+    </Router>
+   
   );
 }
+
 
 export default App;
