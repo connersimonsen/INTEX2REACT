@@ -1,27 +1,21 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import PRODUCTS from './products'
+import AppContext from './context'
 
-const categories = {}
-let total = 0
-for (let p of Object.values(PRODUCTS)) {
-        categories[p.category] = (categories[p.category] || 0) + 1
-        
-        total += 1
-}
+
 
 function Left(props) {
     
-    
+    const context = React.useContext(AppContext)
     
     return(
         
         <bs.Nav defaultActiveKey="/home" className="flex-column">
-        <Link to="/" className="nav-link">{'All Products (' + total + ')'}</Link>
-        {Object.entries(categories).map((category, count) => {
+        <Link to="/" className="nav-link">{'All Products (' + Object.entries(context.products).length + ')'}</Link>
+        {Object.entries(context.categories).map((category) => {
             return (
-            <Link to={"/category/" + category[0]} className="nav-link" key={count}>{category[0] + ' (' + category[1] +')'}</Link>
+            <Link to={"/category/" + category[1].title} className="nav-link" key={category[1].title}>{category[1].title + ' (' + category[1].count +')'}</Link>
             )
         })} 
         </bs.Nav>

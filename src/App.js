@@ -9,8 +9,10 @@ import Home from './home'
 import About from './about'
 import Help from './help'
 import ProductDetail from './product-detail'
+import ShoppingCart from './shopping-cart'
+import Checkout from './checkout-starter'
+import Receipt from './receipt'
 import './App.css'
-
 
 function App(props) {
   return (
@@ -33,6 +35,9 @@ function App(props) {
                 <Route exact path="/category/:Name" component={Home}/>
                 <Route exact path="/about" component={About}/>
                 <Route exact path="/help" component={Help}/>
+                <Route exact path="/cart" component={ShoppingCart}/>
+                <Route exact path="/checkout" component={Checkout}/>
+                <Route exact path="/receipt" component={Receipt}/>
               </Switch>
             </bs.Col>
             <bs.Col md="2" className="px-3 py-4 shadow" style={{ backgroundColor: "#EAEDED"}}>

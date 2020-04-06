@@ -1,10 +1,12 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import AppContext from './context'
 
 
 
 function HeaderContainer(props) {
+    const context = React.useContext(AppContext)
     return (
         <bs.Navbar variant="dark" expand="lg">
             <Link to="/">
@@ -19,6 +21,11 @@ function HeaderContainer(props) {
                     <Link to="/" className="nav-link">Home</Link>
                     <Link to="/about" className="nav-link">About</Link>
                     <Link to="/help" className="nav-link">Help</Link>
+                </bs.Nav>
+                <bs.Nav>
+                    <Link to="/cart" className="nav-link" style={{color: "white"}}>
+                        <i className="fas fa-shopping-cart" style={{color: "white"}}></i> ({context.cartCount}) 
+                    </Link>
                 </bs.Nav>
                 <bs.Nav>
                     <bs.NavDropdown title="Welcome, Conner" alignRight>

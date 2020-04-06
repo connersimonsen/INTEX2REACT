@@ -1,25 +1,26 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
-import PRODUCTS from './products'
 import { useRouteMatch } from 'react-router-dom'
 import ProductCard from './product-card'
+import AppContext from './context'
 
 
 function Home(props) {
     
+    const context = React.useContext(AppContext)
     const match = useRouteMatch("/category/:slug")
     const productArray = []
     if (match !== null) {
-        Object.entries(PRODUCTS).filter(function(product) {
+        Object.entries(context.products).filter(function(product) {
         
-            if (product[1].category === match.params.slug) {
+            if (product[1].category.title === match.params.slug) {
                 return productArray.push(product)
             }
             return null
             
         })
     } else {
-        Object.entries(PRODUCTS).filter(function(product) {
+        Object.entries(context.products).filter(function(product) {
             return productArray.push(product)
         })
     }

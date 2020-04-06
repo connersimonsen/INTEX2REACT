@@ -1,16 +1,19 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
-import PRODUCTS from './products'
+import AppContext from './context'
 //import { Link } from 'react-router-dom'
 import { useRouteMatch } from 'react-router-dom'
 
 
 function ProductDetails(props) {
 
+    const context = React.useContext(AppContext)
     const [imgIdx, setImgIdx] = React.useState(1);
     
     const match = useRouteMatch("/product/:slug")
-    let product = PRODUCTS[match.params.slug]
+    let product = context.products[match.params.slug]
+    console.log(context.cart)
+    console.log(product)
     if (product == null) {
         return (
             <bs.Container fluid className="p-4">
@@ -26,7 +29,8 @@ function ProductDetails(props) {
             <bs.Container fluid className="p-4">
                 <bs.Row>
                     <bs.Col md="7">
-                        <h1>{product.name}</h1>
+                        <h1 style={{display: 'inline'}}>{product.name}</h1>
+                        <bs.Button type="button" variant="warning" className='float-right mt-2' onClick={e => {context.addToCart(product.id)}}>Add to Cart</bs.Button>
                         <h2>${product.price}</h2>
                         <p>{product.description}</p>
                     </bs.Col>
@@ -47,6 +51,9 @@ function ProductDetails(props) {
                     
                         
                     </bs.Col>
+                </bs.Row>
+                <bs.Row>
+                    
                 </bs.Row>
                 
             </bs.Container>
