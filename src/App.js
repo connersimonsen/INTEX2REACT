@@ -8,7 +8,7 @@ import FooterContainer from './footer-container'
 import Home from './home'
 import About from './about'
 import Help from './help'
-import ProductDetail from './product-detail'
+import CampaignDetail from './campaign-detail'
 import ShoppingCart from './shopping-cart'
 import Checkout from './checkout-starter'
 import Receipt from './receipt'
@@ -32,7 +32,7 @@ function App(props) {
             </bs.Col>
             <bs.Col md="8">
               <Switch>
-                <Route exact path="/product/:Id" component={ProductDetail}/>
+                <Route exact path="/campaign/:Id" component={CampaignDetail}/>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/category/:Name" component={Home}/>
                 <Route exact path="/about" component={About}/>

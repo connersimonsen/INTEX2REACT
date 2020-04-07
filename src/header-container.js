@@ -11,8 +11,8 @@ function HeaderContainer(props) {
         <bs.Navbar variant="dark" expand="lg">
             <Link to="/">
                 <bs.Navbar.Brand>
-                    <img alt="Site Icon" src="/media/arctic.png" style={{width: 50}} className="imgRound"/>
-                    &nbsp;&nbsp;&nbsp;Arctic
+                    <img alt="Site Icon" src="/media/sun.png" style={{width: 50}} className="imgRound"/>
+                    &nbsp;&nbsp;&nbsp;GoFundWe
                 </bs.Navbar.Brand>
             </Link>
             <bs.Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -21,11 +21,6 @@ function HeaderContainer(props) {
                     <Link to="/" className="nav-link">Home</Link>
                     <Link to="/about" className="nav-link">About</Link>
                     <Link to="/help" className="nav-link">Help</Link>
-                </bs.Nav>
-                <bs.Nav>
-                    <Link to="/cart" className="nav-link" style={{color: "white"}}>
-                        <i className="fas fa-shopping-cart" style={{color: "white"}}></i> ({context.cartCount}) 
-                    </Link>
                 </bs.Nav>
                 <bs.Nav>
                     <bs.NavDropdown title="Welcome, Conner" alignRight>

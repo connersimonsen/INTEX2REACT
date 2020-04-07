@@ -3,7 +3,7 @@ import React from 'react'
 
 function Footer(props) {
     return(
-        <p className="footerText">&copy; 2020 Arctic.com</p>
+        <p className="footerText">&copy; 2020 GoFundWe.com</p>
     )
 }
 

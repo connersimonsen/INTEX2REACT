@@ -11,69 +11,12 @@ export default class AppProvider extends React.Component {
         super(props)
         
         this.actions = {
-            addToCart: this.addToCart,
-            removeFromCart: this.removeFromCart,
-            getCartTotal: this.getCartTotal,
-            clearCart: this.clearCart,
+            
         }
 
         this.state = {
-            categories: {},
-            products: {},
-            cart: {},
-            cartCount: 0,
-            cartTotal: 0,
-            recent: {},
+            campaigns: {},
         }
-    }
-
-    addToCart = (pid) => {
-        this.setState(state => produce(state, draft => {
-            if (draft.cart[pid]) {
-                draft.cart[pid] += 1
-            } else {
-                draft.cart[pid] = 1
-            }
-            draft.cartCount = 0
-            for(var item in draft.cart) {
-                draft.cartCount += draft.cart[item]
-            }
-        }))
-        this.getCartTotal()
-    }
-
-    removeFromCart = (pid) => {
-        this.setState(state => produce(state, draft => {
-            delete draft.cart[pid]
-            draft.cartCount = 0
-            for(var item in draft.cart) {
-                draft.cartCount += draft.cart[item]
-            }
-        }))
-        this.getCartTotal() 
-    }
-
-    getCartTotal = () => {
-        this.setState(state => produce(state, draft => {
-            draft.cartTotal = 0
-            var total = 0
-            for (var item in draft.cart) {
-                console.log('item', item)
-                var subTotal = 0
-                var product = draft.products[item]
-                subTotal = (product.price * draft.cart[item]).toFixed(2)
-                total = total + parseFloat(subTotal)
-                total.toFixed(2)
-            }
-            draft.cartTotal = total.toFixed(2)
-        }))
-    }
-
-    clearCart = () => {
-        this.setState(produce(this.state, draft => {
-            draft.cart = {}
-            draft.cartCount = 0
-        }))
     }
 
     render() {
@@ -85,22 +28,15 @@ export default class AppProvider extends React.Component {
     }
 
     async componentDidMount() {
-        const catResp = await axios.get('http://localhost:8000/api/category/')
-        const prodResp = await axios.get('http://localhost:8000/api/product/')
+        const campResp = await axios.get('http://localhost:8000/api/campaign/')
 
-        catResp.data.forEach(element => {
-            element.count = prodResp.data.filter(item => item.category.title === element.title).length
-        });
-        
-        const prods = {}
-        for(const p of prodResp.data) {
-            prods[p.id] = p
+        const camps = {}
+        for(const p of campResp.data) {
+            camps[p.campaign_id] = p
         }
-        
 
         this.setState({
-            categories: catResp.data,
-            products: prods
+            campaigns: camps
         })
     }
 

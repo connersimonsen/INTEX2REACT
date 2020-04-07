@@ -12,12 +12,12 @@ function Left(props) {
     return(
         
         <bs.Nav defaultActiveKey="/home" className="flex-column">
-        <Link to="/" className="nav-link">{'All Products (' + Object.entries(context.products).length + ')'}</Link>
-        {Object.entries(context.categories).map((category) => {
+        <Link to="/" className="nav-link">All Products ()</Link>
+        {/* {Object.entries(context.categories).map((category) => {
             return (
             <Link to={"/category/" + category[1].title} className="nav-link" key={category[1].title}>{category[1].title + ' (' + category[1].count +')'}</Link>
             )
-        })} 
+        })}  */}
         </bs.Nav>
         
     )
