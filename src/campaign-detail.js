@@ -13,6 +13,11 @@ function CampaignDetail(props) {
     
     const match = useRouteMatch("/campaign/:slug")
     let campaign = context.campaigns[match.params.slug]    
+
+    if (campaign.is_charity === TRUE) {
+        document.getElementById("name").innerHTML = "Charity Name: " + campaign.
+    }
+
     if (campaign == null) {
         return (
             <bs.Container fluid className="p-4">
@@ -33,12 +38,17 @@ function CampaignDetail(props) {
                             <bs.Button type="button" variant="warning" className='float-right mt-2'>Go Fund Me Link</bs.Button>
                         </a>
                         <h5><span style={{fontSize: '28px'}}>${formatNumber(campaign.current_amount)}</span> raised of ${formatNumber(campaign.goal)} goal</h5>
+                        <h5>Date launched: {campaign.launch_date}</h5>
+                        <h5>Number of hearts: {campaign.campaign_hearts}</h5>
+                        <h3 id="name"></h3>
                         <p>{campaign.description}</p>
                     </bs.Col>
                     <bs.Col md="4">
                         <bs.Row>
                             <bs.Col md="12">
-                            <bs.Image src={campaign.campaign_image_url} className="detailImg float-right" rounded></bs.Image>
+                                <bs.Image src={campaign.campaign_image_url} className="detailImg float-right" rounded></bs.Image>
+                                <center><h3 style={{marginTop: "3rem"}}>{campaign.user_first_name}</h3></center>
+                                {console.log(campaign)}
                             </bs.Col>
                         </bs.Row>
                     </bs.Col>
