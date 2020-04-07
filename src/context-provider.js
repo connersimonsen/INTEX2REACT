@@ -16,6 +16,7 @@ export default class AppProvider extends React.Component {
 
         this.state = {
             campaigns: {},
+            categories: {},
             
         }
     }
@@ -29,6 +30,7 @@ export default class AppProvider extends React.Component {
     }
 
     async componentDidMount() {
+        const resp = await axios.get('http://localhost:8000/api/category/')
         const campResp = await axios.get('http://localhost:8000/api/campaign/')
 
         const camps = {}
@@ -36,8 +38,14 @@ export default class AppProvider extends React.Component {
             camps[p.campaign_id] = p
         }
 
+        const cats = {} 
+        for (const c of resp.data) {
+            cats[c.id] = c
+        }
+
         this.setState({
             campaigns: camps,
+            categories: cats,
         })
 
         //console.log(campaigns)
