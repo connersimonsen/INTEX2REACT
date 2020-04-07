@@ -38,9 +38,7 @@ function Home(props) {
                     return (
                         <CampaignCard campaign={campaign} id={id} key={id} />
                     )
-                })}
-
-                
+                })}                
             </bs.Row>
         </bs.Container>
     )

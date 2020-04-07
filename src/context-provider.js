@@ -16,6 +16,7 @@ export default class AppProvider extends React.Component {
 
         this.state = {
             campaigns: {},
+            
         }
     }
 
@@ -28,7 +29,7 @@ export default class AppProvider extends React.Component {
     }
 
     async componentDidMount() {
-        const campResp = await axios.get('http://localhost:8000/api/campaign/')
+        const campResp = await axios.get('http://localhost:8000/api/campaign')
 
         const camps = {}
         for(const p of campResp.data) {
@@ -36,8 +37,10 @@ export default class AppProvider extends React.Component {
         }
 
         this.setState({
-            campaigns: camps
+            campaigns: camps,
         })
+        
+        console.log(campaigns)
     }
 
 }
