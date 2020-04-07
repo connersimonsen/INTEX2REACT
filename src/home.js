@@ -17,11 +17,11 @@ function Home(props) {
                 </bs.Col>
             </bs.Row>
             <bs.Row className="mt-4">
-                <div class="wrap">
-                    <div class="search">
-                        <input type="text" class="searchTerm" placeholder="Try searching people, titles or locations"></input>
-                        <button type="submit" class="searchButton">
-                            <i class="fa fa-search"></i>
+                <div className="wrap">
+                    <div className="search">
+                        <input type="text" className="searchTerm" placeholder="Try searching people, titles or locations"></input>
+                        <button type="submit" className="searchButton">
+                            <i className="fa fa-search"></i>
                         </button>
                     </div>
                 </div>
@@ -34,7 +34,7 @@ function Home(props) {
             <bs.Row>
                 
                 {Object.entries(context.campaigns).map(([id, campaign]) => {
-                    {console.log('campaign', id, campaign)}
+                    //{console.log('campaign', id, campaign)}
                     return (
                         <CampaignCard campaign={campaign} id={id} key={id} />
                     )

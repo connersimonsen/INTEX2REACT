@@ -12,11 +12,7 @@ function CampaignDetail(props) {
     const [imgIdx, setImgIdx] = React.useState(1);
     
     const match = useRouteMatch("/campaign/:slug")
-    let campaign = context.campaigns[match.params.slug]    
-
-    if (campaign.is_charity === TRUE) {
-        document.getElementById("name").innerHTML = "Charity Name: " + campaign.
-    }
+    let campaign = context.campaigns[match.params.slug]
 
     if (campaign == null) {
         return (
@@ -29,36 +25,37 @@ function CampaignDetail(props) {
         </bs.Container>
         )
     } else {
+        
         return(
             <bs.Container fluid className="p-4">
                 <bs.Row>
                     <bs.Col md="8">
                         <h1 style={{display: 'inline'}}>{campaign.title}</h1>
                         <a href={campaign.url}>
-                            <bs.Button type="button" variant="warning" className='float-right mt-2'>Go Fund Me Link</bs.Button>
+                            <bs.Button type="button" variant="warning" className='float-right mt-2'><h5>Go Fund Me Link</h5></bs.Button>
                         </a>
                         <h5><span style={{fontSize: '28px'}}>${formatNumber(campaign.current_amount)}</span> raised of ${formatNumber(campaign.goal)} goal</h5>
                         <h5>Date launched: {campaign.launch_date}</h5>
-                        <h5>Number of hearts: {campaign.campaign_hearts}</h5>
-                        <h3 id="name"></h3>
-                        <p>{campaign.description}</p>
+                        <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet"/>
+                        <h5>Number of hearts: {campaign.campaign_hearts} <i style={{fontSize: '15px'}} class="em em-hearts" aria-role="presentation" aria-label="BLACK HEART SUIT"></i></h5>
+                        <h4>{campaign.is_charity === "TRUE" ? "Charity Name: " + campaign.charity_name : "The creator is not a charitable organization but an individual"}</h4>
+                        <br></br>
+                        <p style={{fontSize: '22px'}}>{campaign.description}</p>
                     </bs.Col>
                     <bs.Col md="4">
                         <bs.Row>
                             <bs.Col md="12">
-                                <bs.Image src={campaign.campaign_image_url} className="detailImg float-right" rounded></bs.Image>
-                                <center><h3 style={{marginTop: "3rem"}}>{campaign.user_first_name}</h3></center>
+                                <bs.Image src={campaign.campaign_image_url} className="detailImg float-right mb-4" rounded></bs.Image>
+                                <center><h3>{campaign.user_first_name}</h3></center>
                                 {console.log(campaign)}
                             </bs.Col>
                         </bs.Row>
                     </bs.Col>
-                </bs.Row>
-                <bs.Row>
-                    
-                </bs.Row>
-                
+                </bs.Row> 
             </bs.Container>
         )   
+
+        
     }
                  
 }
