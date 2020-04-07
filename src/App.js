@@ -15,7 +15,7 @@ import Receipt from './receipt'
 import './App.css'
 
 // Gui has been here
-
+// Conner has been here
 function App(props) {
   return (
 
