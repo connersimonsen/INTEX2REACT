@@ -14,6 +14,8 @@ import Checkout from './checkout-starter'
 import Receipt from './receipt'
 import './App.css'
 
+// Gui has been here
+
 function App(props) {
   return (
 
