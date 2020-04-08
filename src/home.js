@@ -8,6 +8,7 @@ import AppContext from './context'
 function Home(props) {
     
     const context = React.useContext(AppContext)
+    console.log(context.campaigns)
     
     return(
         <bs.Container fluid className="p-4">

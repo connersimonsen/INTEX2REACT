@@ -47,8 +47,6 @@ export default class AppProvider extends React.Component {
             campaigns: camps,
             categories: cats,
         })
-
-        //console.log(campaigns)
     }
 
 }
