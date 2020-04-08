@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 function ProgressBar(props) {
     const amount = (props.amt * 100).toFixed(2)

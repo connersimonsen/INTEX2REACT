@@ -10,17 +10,12 @@ function Left(props) {
     const context = React.useContext(AppContext)
     const categories = {}
     const Camp_AR = Object.values(context.campaigns)
-    const Cat_AR = Object.values(context.categories)
-    let c = 0
     let cat = ""
 
     for (let p of Camp_AR) {        
         cat = p.category_id
         categories[cat] = (categories[cat] || 0) + 1
-        c+=1
     }
-
-    console.log(categories)
 
     const categoryHandler = (event) => {
         context.setSearch(false)

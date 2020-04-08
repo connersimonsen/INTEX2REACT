@@ -19,8 +19,6 @@ function Home(props) {
     if(match) {
         Camp_Ar = Camp_Ar.filter(p => p.category_id === match.params.Name)
     }
-
-    console.log(!Camp_Ar[0] ? "Nope" : Camp_Ar[0])
     
     return(
         <bs.Container fluid className="p-4">

@@ -9,7 +9,6 @@ import Home from './home'
 import About from './about'
 import Help from './help'
 import CampaignDetail from './campaign-detail'
-
 import './App.css'
 
 function App(props) {

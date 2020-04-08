@@ -1,8 +1,7 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
 import AppContext from './context'
-//import { Link } from 'react-router-dom'
-import { useRouteMatch, Link } from 'react-router-dom'
+import { useRouteMatch } from 'react-router-dom'
 import { formatNumber } from './util'
 import DetailCard from './details-card'
 import ProgressBar from './progress-bar'
@@ -11,7 +10,6 @@ import ProgressBar from './progress-bar'
 function CampaignDetail(props) {
 
     const context = React.useContext(AppContext)
-    const [imgIdx, setImgIdx] = React.useState(1);
     
     const match = useRouteMatch("/campaign/:slug")
     let campaign = context.campaigns[match.params.slug]

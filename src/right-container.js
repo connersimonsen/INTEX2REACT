@@ -18,8 +18,8 @@ function Right(props) {
                 <bs.Row className="">
                     {Cor_AR.map(p => {
                         return (
-                            <bs.Row>
-                                <WebsiteCard key={p.id} name={p.name} id={p.id} filename={p.filename} url={p.url}/>
+                            <bs.Row key={p.id} >
+                                <WebsiteCard name={p.name} id={p.id} filename={p.filename} url={p.url}/>
                             </bs.Row>
                         )
                     })}

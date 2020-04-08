@@ -1,7 +1,4 @@
 import React from 'react'
-import * as bs from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import { formatNumber } from './util'
 import axios from 'axios'
 import AppContext from './context'
 
@@ -12,7 +9,6 @@ function Search(props) {
 
     const mySubmitHandler = (event) => {
         event.preventDefault();
-        console.log(event.target.search.value);
         var search_in = event.target.search_in.value
         var search = event.target.search.value
         context.setSearchTerm(search)
@@ -25,14 +21,10 @@ function Search(props) {
             }
         }).then(function (response) {
             let resp = response
-            console.log('response', resp.data)
             context.setSearchResults(resp.data)
             context.setSearch(true)
         })
     }
-    
-    console.log('cont res', context.searchResults)
-    console.log('cont bool', context.search)
 
     return (
         <form onSubmit={mySubmitHandler} className="center">
