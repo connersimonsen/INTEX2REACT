@@ -8,7 +8,14 @@ import AppContext from './context'
 function Home(props) {
     
     const context = React.useContext(AppContext)
-    console.log(context.campaigns)
+    let Camp_Ar = Object.values(context.campaigns)
+    const match = useRouteMatch('/category_id/:Name')
+
+    if(match) {
+        Camp_Ar = Camp_Ar.filter(p => p.category_id === match.params.Name)
+    }
+
+    console.log(!Camp_Ar[0] ? "Nope" : Camp_Ar[0])
     
     return(
         <bs.Container fluid className="p-4">
@@ -34,10 +41,9 @@ function Home(props) {
             </bs.Row>
             <bs.Row>
                 
-                {Object.entries(context.campaigns).map(([id, campaign]) => {
-                    //{console.log('campaign', id, campaign)}
+                {Camp_Ar.map(p => {
                     return (
-                        <CampaignCard campaign={campaign} id={id} key={id} />
+                        <CampaignCard campaign={p} id={p.campaign_id} key={p.campaign_id} />
                     )
                 })}                
             </bs.Row>

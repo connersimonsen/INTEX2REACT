@@ -15,10 +15,12 @@ function Left(props) {
     let cat = ""
 
     for (let p of Camp_AR) {        
-        cat = !Cat_AR[c] ? "Other" : Cat_AR[c].title
+        cat = p.category_id
         categories[cat] = (categories[cat] || 0) + 1
         c+=1
     }
+
+    console.log(categories)
     
     return(
         
@@ -26,7 +28,7 @@ function Left(props) {
         <Link to="/" className="nav-link"><h5>All Campaigns ({Camp_AR.length})</h5></Link>
         <bs.Nav defaultActiveKey="/home" link="black" className="flex-column text-dark">
                 {Object.entries(categories).map( ([key, value]) => (      
-                    <Link style={{color: "black"}} key={key} to={`/category/${key}`} className="nav-link">{key} ({value})</Link>
+                    <Link style={{color: "black"}} key={key} to={`/category_id/${key}`} className="nav-link">{key} ({value})</Link>
                     )                                            
                 
                 )}
