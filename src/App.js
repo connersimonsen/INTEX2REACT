@@ -9,13 +9,9 @@ import Home from './home'
 import About from './about'
 import Help from './help'
 import CampaignDetail from './campaign-detail'
-//import ShoppingCart from './shopping-cart'
-//import Checkout from './checkout-starter'
 import Receipt from './receipt'
 import './App.css'
 
-// Gui has been here
-// Conner has been here
 function App(props) {
   return (
 
@@ -37,8 +33,6 @@ function App(props) {
                 <Route exact path="/category_id/:Name" component={Home}/>
                 <Route exact path="/about" component={About}/>
                 <Route exact path="/help" component={Help}/>
-                {/* <Route exact path="/cart" component={ShoppingCart}/> */}
-                {/* <Route exact path="/checkout" component={Checkout}/> */}
                 <Route exact path="/receipt" component={Receipt}/>
               </Switch>
             </bs.Col>
