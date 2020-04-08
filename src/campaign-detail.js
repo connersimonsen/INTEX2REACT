@@ -5,6 +5,7 @@ import AppContext from './context'
 import { useRouteMatch, Link } from 'react-router-dom'
 import { formatNumber } from './util'
 import DetailCard from './details-card'
+import ProgressBar from './progress-bar'
 
 
 function CampaignDetail(props) {
@@ -27,18 +28,20 @@ function CampaignDetail(props) {
         )
     } else {
         let amt = (campaign.current_amount/campaign.goal)
+        console.log('amt', amt)
         let fcolor = ""
-        if (amt < .3) {fcolor = "red"}
-        else if (amt > .3 && amt < .9) {fcolor = "#d2ee11"}
-        else if (amt > .9) {fcolor = "green"}
+        if (amt < .3) {fcolor = "#FF4F33"}
+        else if (amt > .3 && amt < .9) {fcolor = "#FFC107"}
+        else if (amt > .9) {fcolor = "#07b053"}
 
         return(
             <bs.Container fluid className="p-4">
                 <bs.Row>
                     <bs.Col md="7">
                         <h1 style={{display: 'inline', color: "#02075d"}}>{campaign.title}</h1>                        
-                        <h5><span style={{fontSize: '28px', color: fcolor}}>${formatNumber(campaign.current_amount)}</span> raised of ${formatNumber(campaign.goal)} goal</h5>
-                        <h5>{campaign.is_charity === "TRUE" ? "Charity Name: " + campaign.charity_name : "The creator is an individual"}</h5>
+                        <h5 className="mt-2"><span style={{fontSize: '28px', color: fcolor}}>${formatNumber(campaign.current_amount)}</span> raised of ${formatNumber(campaign.goal)} goal</h5>
+                        <ProgressBar amt={amt} color={fcolor}/>
+                        <h5 className="mt-3">{campaign.is_charity === "TRUE" ? "Charity Name: " + campaign.charity_name : "The creator is an individual"}</h5>
                         <br></br>
                         <p style={{fontSize: '22px'}}>{campaign.description}</p>
                     </bs.Col>

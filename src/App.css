@@ -82,7 +82,7 @@ th {
 
 .search {
   width: 100%;
-  position: sticky;
+  position: relative;
   display: flex;
   padding-top: 40px;
 }
@@ -93,13 +93,13 @@ th {
   border-right: none;
   padding: 10px;
   height: 36px;
-  border-radius: 5px 0 0 5px;
+  border-radius: 0 0 0 0;
   outline: none;
-  color: #9DBFAF;
+  color: gray;
 }
 
 .searchTerm:focus{
-  color: #FFC107;
+  color: #282c34;
 }
 
 .searchButton {
@@ -108,17 +108,66 @@ th {
   border: 1px solid #FFC107;
   background: #FFC107;
   text-align: center;
-  color: #fff;
+  color: #282c34;
   border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.searchDropdown {
+  min-width: 125px;
+  height: 36px;
+  border: 1px solid #FFC107;
+  background: #FFC107;
+  text-align: center;
+  color: #282c34;
+  border-radius: 5px 0 0 5px;
   cursor: pointer;
   font-size: 20px;
 }
 
 /*Resize the wrap to see the search bar change!*/
 .wrap{
-  width: 40%;
-  position: sticky;
+  width: 100%;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.progress-bar {
+  position: relative;
+  height: 20px;
+  width: 350px;
+  border-radius: 50px;
+  border: 1px solid black;
+  background: #EAEDED;
+}
+
+.filler {
+  background: #FFC107;
+  height: 100%;
+  border-radius: inherit;
+  transition: width .2s ease-in;
+}
+
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+  transform: scale(1.03);
 }

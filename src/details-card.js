@@ -6,7 +6,7 @@ import { formatNumber } from './util'
 
 function DetailCard(props) {
     return(        
-        <bs.Card key={props.id} className="my-3" style={{minHeight: "10rem"}}>                
+        <bs.Card key={props.id} className="my-3 shadow" style={{minHeight: "10rem"}}>                
             <bs.Card.Img variant="top" className="cardImg" src={props.campaign.campaign_image_url} />
             <bs.Card.Body>            
                 <bs.Card.Title className="text-center">Name: {props.campaign.user_first_name}</bs.Card.Title>

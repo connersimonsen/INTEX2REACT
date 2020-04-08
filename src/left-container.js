@@ -21,14 +21,18 @@ function Left(props) {
     }
 
     console.log(categories)
+
+    const categoryHandler = (event) => {
+        context.setSearch(false)
+    }
     
     return(
         
         <bs.Nav defaultActiveKey="/home" className="flex-column">
-        <Link style={{color: "#02075d"}} to="/" className="nav-link"><h5>All Campaigns ({Camp_AR.length})</h5></Link>
+        <Link style={{color: "#02075d"}} to="/" className="nav-link" onClick={categoryHandler}><h5>All Campaigns ({Camp_AR.length})</h5></Link>
         <bs.Nav defaultActiveKey="/home" className="flex-column text-dark">
                 {Object.entries(categories).map( ([key, value]) => (      
-                    <Link style={{color: "#02075d"}} key={key} to={`/category_id/${key}`} className="nav-link"><h5>{key} ({value})</h5></Link>
+                    <Link style={{color: "#02075d"}} key={key} to={`/category_id/${key}`} className="nav-link" onClick={categoryHandler}><h5>{key} ({value})</h5></Link>
                     )                                            
                 
                 )}
