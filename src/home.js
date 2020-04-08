@@ -33,13 +33,13 @@ function Home(props) {
             <bs.Row>
                 <bs.Col>
                     {context.search ?
-                        <h4>"{context.searchTerm}" returned {context.searchCount} results:</h4>
+                        <h4>{context.searchCount} results for "{context.searchTerm}":</h4>
                         :
                         <div>
                             {categoryName ?
                                 <h4>{categoryName}</h4>
                                 :
-                                <h4>Find a GoFundMe for you</h4>
+                                <h4>Find a GoFundMe</h4>
                             }
                             
                         </div>

@@ -26,6 +26,8 @@ function Search(props) {
         })
     }
 
+    console.log('searchRes', context.searchResults)
+
     return (
         <form onSubmit={mySubmitHandler} className="center">
             <div>

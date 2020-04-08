@@ -12,7 +12,13 @@ function CampaignDetail(props) {
     const context = React.useContext(AppContext)
     
     const match = useRouteMatch("/campaign/:slug")
-    let campaign = context.campaigns[match.params.slug]
+    if (context.search) {
+        var campaign = context.searchResults[match.params.slug]
+    } else {
+        var campaign = context.campaigns[match.params.slug]
+    }
+    
+    console.log('campaign', campaign)
 
     if (campaign == null) {
         return (
@@ -36,7 +42,7 @@ function CampaignDetail(props) {
             <bs.Container fluid className="p-4">
                 <bs.Row>
                     <bs.Col md="7">
-                        <h1 style={{display: 'inline', color: "#02075d"}}>{campaign.title}</h1>                        
+                        <h1 style={{display: 'inline'}}>{campaign.title}</h1>                        
                         <h5 className="mt-2"><span style={{fontSize: '28px', color: fcolor}}>${formatNumber(campaign.current_amount)}</span> raised of ${formatNumber(campaign.goal)} goal</h5>
                         <ProgressBar amt={amt} color={fcolor}/>
                         <h5 className="mt-3">{campaign.is_charity === "TRUE" ? "Charity Name: " + campaign.charity_name : "The creator is an individual"}</h5>

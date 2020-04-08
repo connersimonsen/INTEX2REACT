@@ -14,7 +14,7 @@ function DetailCard(props) {
                     <br></br>
                     <b>Number of hearts:</b> {props.campaign.campaign_hearts} <i style={{fontSize: '15px'}} className="em em-hearts"></i>
                     <br></br>                 
-                    <bs.Button type="button" variant="warning" href={props.campaign.url} className='center mt-2'>Go Fund Me Link</bs.Button>
+                    <bs.Button type="button" variant="warning" href={props.campaign.url} className='center mt-2 hvr-grow'>Go Fund Me Link</bs.Button>
                 </bs.Card.Text>
                 
             </bs.Card.Body>

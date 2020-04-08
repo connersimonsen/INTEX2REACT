@@ -13,8 +13,9 @@ function Right(props) {
     return(
         <bs.Container>
             <bs.Col>
-                {/* <center style={{color: "#02075d"}}><h3>Extra Resources</h3></center> */}
-                <br></br>
+                <bs.Row>
+                    <h3>Other Resources</h3>
+                </bs.Row>
                 <bs.Row className="">
                     {Cor_AR.map(p => {
                         return (
