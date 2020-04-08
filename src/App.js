@@ -9,7 +9,7 @@ import Home from './home'
 import About from './about'
 import Help from './help'
 import CampaignDetail from './campaign-detail'
-import Receipt from './receipt'
+
 import './App.css'
 
 function App(props) {
@@ -33,7 +33,6 @@ function App(props) {
                 <Route exact path="/category_id/:Name" component={Home}/>
                 <Route exact path="/about" component={About}/>
                 <Route exact path="/help" component={Help}/>
-                <Route exact path="/receipt" component={Receipt}/>
               </Switch>
             </bs.Col>
             <bs.Col md="2" className="px-3 py-4 shadow" style={{ backgroundColor: "#EAEDED"}}>
