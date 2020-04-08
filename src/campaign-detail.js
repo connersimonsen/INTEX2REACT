@@ -25,16 +25,21 @@ function CampaignDetail(props) {
         </bs.Container>
         )
     } else {
-        
+        let amt = (campaign.current_amount/campaign.goal)
+        let fcolor = ""
+        if (amt < .3) {fcolor = "red"}
+        else if (amt > .3 && amt < .9) {fcolor = "#d2ee11"}
+        else if (amt > .9) {fcolor = "green"}
+
         return(
             <bs.Container fluid className="p-4">
                 <bs.Row>
                     <bs.Col md="8">
-                        <h1 style={{display: 'inline'}}>{campaign.title}</h1>
+                        <h1 style={{display: 'inline', color: "#02075d"}}>{campaign.title}</h1>
                         <a href={campaign.url}>
                             <bs.Button type="button" variant="warning" className='float-right mt-2'><h5>Go Fund Me Link</h5></bs.Button>
                         </a>
-                        <h5><span style={{fontSize: '28px'}}>${formatNumber(campaign.current_amount)}</span> raised of ${formatNumber(campaign.goal)} goal</h5>
+                        <h5><span style={{fontSize: '28px', color: fcolor}}>${formatNumber(campaign.current_amount)}</span> raised of ${formatNumber(campaign.goal)} goal</h5>
                         <h5>Date launched: {campaign.launch_date}</h5>
                         <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet"/>
                         <h5>Number of hearts: {campaign.campaign_hearts} <i style={{fontSize: '15px'}} className="em em-hearts"></i></h5>
