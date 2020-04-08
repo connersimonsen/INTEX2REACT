@@ -171,3 +171,9 @@ th {
 .hvr-grow:active {
   transform: scale(1.03);
 }
+
+.websiteImg {
+  object-fit: cover;
+  width: 16rem;
+  height: 14rem 
+}

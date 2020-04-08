@@ -22,13 +22,13 @@ function HeaderContainer(props) {
                     <Link to="/about" className="nav-link">About</Link>
                     <Link to="/help" className="nav-link">Help</Link>
                 </bs.Nav>
-                <bs.Nav>
+                {/* <bs.Nav>
                     <bs.NavDropdown title="Welcome, Conner" alignRight>
                         <bs.NavDropdown.Item>My Account</bs.NavDropdown.Item>
                         <bs.NavDropdown.Divider />
                         <bs.NavDropdown.Item href="#action/3.4">Logout</bs.NavDropdown.Item>
                     </bs.NavDropdown>
-                </bs.Nav>
+                </bs.Nav> */}
             </bs.Navbar.Collapse>
         </bs.Navbar>
     )
