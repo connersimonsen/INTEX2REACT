@@ -37,8 +37,8 @@ function CampaignDetail(props) {
                         <h5><span style={{fontSize: '28px'}}>${formatNumber(campaign.current_amount)}</span> raised of ${formatNumber(campaign.goal)} goal</h5>
                         <h5>Date launched: {campaign.launch_date}</h5>
                         <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet"/>
-                        <h5>Number of hearts: {campaign.campaign_hearts} <i style={{fontSize: '15px'}} class="em em-hearts" aria-role="presentation" aria-label="BLACK HEART SUIT"></i></h5>
-                        <h5>{campaign.is_charity === "TRUE" ? "Charity Name: " + campaign.charity_name : "The creator is not a charitable organization but an individual"}</h5>
+                        <h5>Number of hearts: {campaign.campaign_hearts} <i style={{fontSize: '15px'}} className="em em-hearts"></i></h5>
+                        <h5>{campaign.is_charity === "TRUE" ? "Charity Name: " + campaign.charity_name : "The creator is an individual"}</h5>
                         <br></br>
                         <p style={{fontSize: '22px'}}>{campaign.description}</p>
                     </bs.Col>
