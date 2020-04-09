@@ -23,7 +23,7 @@ function Left(props) {
     
     return(
         <bs.Nav defaultActiveKey="/home" className="flex-column">
-        <Link style={{textDecoration: 'inherit', color: 'inherit'}} className="nav-link"><h3>Categories</h3></Link>
+        <Link style={{textDecoration: 'inherit', color: 'inherit'}} to="/" className="nav-link"><h3>Categories</h3></Link>
         <Link style={{textDecoration: 'inherit', color: 'inherit'}} to="/" className="nav-link hvr-grow" onClick={categoryHandler}><h6>All Campaigns ({Camp_AR.length})</h6></Link>
         <bs.Nav defaultActiveKey="/home" className="flex-column text-dark">
                 {Object.entries(categories).map( ([key, value]) => (      
