@@ -35,8 +35,8 @@ export default class AppProvider extends React.Component {
     }
 
     async componentDidMount() {
-        const resp = await axios.get('http://localhost:8000/api/category_id/')
-        const campResp = await axios.get('http://localhost:8000/api/campaign/')
+        const resp = await axios.get('/api/category_id/')
+        const campResp = await axios.get('/api/campaign/')
 
         const camps = {}
         for(const p of campResp.data) {

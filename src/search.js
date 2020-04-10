@@ -14,7 +14,7 @@ function Search(props) {
         context.setSearchTerm(search)
         const result = axios({
             method: 'post',
-            url: 'http://localhost:8000/api/search/',
+            url: '/api/search/',
             data: {
                 'search': search,
                 'search_in': search_in,
@@ -38,7 +38,7 @@ function Search(props) {
                             <option className="search-filter" value="title">Title</option>
                             <option className="search-filter" value="user_first_name">Name</option>
                             <option className="search-filter" value="location_city">City</option>
-                            <option className="search-filter" value="location_country">Country</option>
+                            {/* <option className="search-filter" value="location_country">Country</option> */}
                         </select >
                         <input className="searchTerm" name="search" placeholder="Try searching people, titles or locations" id="search-project" type="text"></input>
                         <button type="submit" className="searchButton">
