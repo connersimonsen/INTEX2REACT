@@ -27,11 +27,7 @@ function CampaignPredictor(props) {
         
         const result = axios({
             method: 'post',
-<<<<<<< HEAD
             url: '/api/predict/',
-=======
-            url: 'http://localhost:8000/api/predict/',
->>>>>>> dbf30b9b84cb79476dc2e31de31175ad87bd2c1e
             data: {
                 'goal': goal,
                 'is_charity': is_charity,
@@ -64,7 +60,6 @@ function CampaignPredictor(props) {
             <bs.Row>
                 <bs.Col>
                     <h1 className="mt-3" style={{textAlign: 'center'}}>Campaign Success Predictor</h1>
-<<<<<<< HEAD
                     <br></br>
                     <center><h4>Tips from our team to have a successfully funded campaign:</h4></center>
                     <center><ul>
@@ -74,8 +69,6 @@ function CampaignPredictor(props) {
                         <li>Spell, error, and grammar check your description</li>
                         <li>Use a high resolution photo that well illustrates what you need funding for</li>
                     </ul></center>
-=======
->>>>>>> dbf30b9b84cb79476dc2e31de31175ad87bd2c1e
                 </bs.Col>
             </bs.Row>
             {parsedAmount >= 0 &&
