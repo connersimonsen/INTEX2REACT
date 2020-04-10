@@ -9,6 +9,7 @@ import Home from './home'
 import About from './about'
 import Help from './help'
 import CampaignDetail from './campaign-detail'
+import CampaignPredictor from './campaign-predictor'
 import './App.css'
 
 function App(props) {
@@ -31,7 +32,7 @@ function App(props) {
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/category_id/:Name" component={Home}/>
                 <Route exact path="/about" component={About}/>
-                <Route exact path="/help" component={Help}/>
+                <Route exact path="/predictor" component={CampaignPredictor}/>
               </Switch>
             </bs.Col>
             <bs.Col md="2" className="px-0 py-4 shadow" style={{ backgroundColor: "#EAEDED"}}>

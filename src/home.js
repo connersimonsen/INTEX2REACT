@@ -4,10 +4,11 @@ import { useRouteMatch } from 'react-router-dom'
 import CampaignCard from './campaign-card'
 import Search from './search'
 import AppContext from './context'
+import { Link } from 'react-router-dom'
 
 
 function Home(props) {
-    
+
     const context = React.useContext(AppContext)
     let Camp_Ar = Object.values(context.campaigns)
     const match = useRouteMatch('/category_id/:Name')
@@ -16,19 +17,37 @@ function Home(props) {
         categoryName = match.params.Name
     }
 
-    if(match) {
+    if (match) {
         Camp_Ar = Camp_Ar.filter(p => p.category_id === match.params.Name)
     }
-    
-    return(
+
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
+    return (
         <bs.Container fluid className="p-4">
             <bs.Row>
                 <bs.Col>
-                    <h1 style={{ textAlign: "center" }}>Welcome to GoFundWe!</h1>
+                    
                 </bs.Col>
             </bs.Row>
-            <bs.Row className="mt-4">
-                <Search />
+            <bs.Row>
+                <bs.Col>
+                    <bs.Card className="shadow">
+                        <bs.Card.Body>
+                        <h1 style={{ textAlign: "center" }}>Welcome to GoFundWe!</h1>
+                            <h5 style={{ textAlign: 'center' }}>Are you looking to create a GoFundMe campaign? Click the button below to see how your campaign will do!</h5>
+                            <div className="text-center mb-2 mt-4">
+                                <Link to="/predictor" className="btn btn-success hvr-grow">Campaign Success Predictor</Link>
+                            </div>
+                            
+                        </bs.Card.Body>
+                    </bs.Card>
+                </bs.Col>
+            </bs.Row>
+            <bs.Row className="mt-5">
+            <Search />
             </bs.Row>
             <bs.Row>
                 <bs.Col>
@@ -41,10 +60,10 @@ function Home(props) {
                                 :
                                 <h4>Find a GoFundMe</h4>
                             }
-                            
+
                         </div>
                     }
-                    
+
                 </bs.Col>
             </bs.Row>
             {context.search ?

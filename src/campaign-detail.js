@@ -18,7 +18,9 @@ function CampaignDetail(props) {
         var campaign = context.campaigns[match.params.slug]
     }
 
-    ////console.log('campaign', campaign)
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     if (campaign == null) {
         return (
